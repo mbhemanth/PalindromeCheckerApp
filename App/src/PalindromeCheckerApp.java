@@ -1,28 +1,28 @@
+import java.util.Stack;
 public class PalindromeCheckerApp {
-  public static void main(String[] args) {
+    public class UseCase5PalindromeCheckerApp {
+        public static void main(String[] args) {
 
-        String input = "madam";
+            String input = "noon";
 
-        char[] characters = input.toCharArray();
+            Stack<Character> stack = new Stack<>();
 
-        int start = 0;
-        int end = characters.length - 1;
 
-        boolean isPalindrome = true;
-
-        while (start < end) {
-            if (characters[start] != characters[end]) {
-                isPalindrome = false;
-                break;
+            for (char c : input.toCharArray()) {
+                stack.push(c);
             }
-            start++;
-            end--;
-        }
 
-        if (isPalindrome) {
-            System.out.println("The string is a Palindrome.");
-        } else {
-            System.out.println("The string is NOT a Palindrome.");
+            boolean isPalindrome = true;
+
+
+            for (char c : input.toCharArray()) {
+                if (c != stack.pop()) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+
+            System.out.println("Input: " + input);
+            System.out.println("Is Palindrome? " + isPalindrome);
         }
-    }
-}
+ }
